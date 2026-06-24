@@ -14,6 +14,14 @@ The append-only record of **Adam's decisions**. Newest first. This is the *ledge
 
 ---
 
+## 2026-06-24 — Tier 0 shipped
+- **The Keep is live.** homesteadai-io/The-Keep pushed to main, private. Janitor green (run 28074719043).
+- **Lyhna confirmed out.** No lyhna/ and no _raw/ in the pushed tree — matches the corrected Deed.
+- **Loop ran clean.** Adversary raised a CRLF risk; Resolver verified ground truth (run passed) and killed the false alarm — no noise commit.
+- **Decisions:** clone moved out of OneDrive; stale Desktop scaffold retired; commit author = Adam for now, Scout gets a homestead-owned bot identity at Tier 1; Node-20 action bump deferred to Tier 1; main stays direct-push, required janitor-check protection added when Scout lands.
+
+---
+
 ## 2026-06-23 — G0: Contract locked
 
 - **Estate named.** Org = `homesteadai-io` (the land). Repo = `The-Keep` (the brain). Visibility: **private**.
