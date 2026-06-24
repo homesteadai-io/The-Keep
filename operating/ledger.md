@@ -14,6 +14,16 @@ The append-only record of **Adam's decisions**. Newest first. This is the *ledge
 
 ---
 
+## 2026-06-24 — Tier 1: self-maintenance live
+- **Keepers wired.** `scout.md` (the only writer) + `librarian.md` (curator/server) added to `/operating` and listed in the indexes.
+- **Inbox opened.** `/inbox` drop-zone documents the Drop → Scout → Librarian → raw-stays-out flow.
+- **Nightly sweep live.** `.github/workflows/nightly-sweep.yml` — pure Python (`tools/sweep.py`), no LLM, no new secrets, `GITHUB_TOKEN` only. Cron 08:00 UTC + manual dispatch. Rebuilds index TOCs (managed `AUTO-INDEX` blocks), link-checks + dedup-flags (warn-only, never auto-merges), re-runs the gate, commits as `github-actions[bot]`. Proven on the runner: run 28076084178 green; bot commit `4aff825` self-healed a deliberately-staled index (idempotent + push path confirmed).
+- **Gate unified.** `tools/checks.py` is the single OKF-validate + secret-scan source for both the on-push check and the sweep.
+- **Invariant #13 added** (Adam-approved): no-delete protects vault concepts, not local scratch.
+- **main protection — NEEDS_DECISION (deferred).** A required-status-check on a *private* repo needs GitHub Team (org `homesteadai-io` is free plan); going public is barred by invariants #5/#10. The janitor still runs green on every push — it just isn't *enforced* as a push gate yet. Awaiting Adam's plan call.
+
+---
+
 ## 2026-06-24 — Tier 0 shipped
 - **The Keep is live.** homesteadai-io/The-Keep pushed to main, private. Janitor green (run 28074719043).
 - **Lyhna confirmed out.** No lyhna/ and no _raw/ in the pushed tree — matches the corrected Deed.
