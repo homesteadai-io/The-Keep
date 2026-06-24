@@ -14,6 +14,14 @@ The append-only record of **Adam's decisions**. Newest first. This is the *ledge
 
 ---
 
+## 2026-06-24 — Tier 1 rulings: Deed slug, escalation tightened
+- **Deed org slug corrected (Adam-approved).** [The Deed](/DEED.md) now labels the GitHub org `homesteadai-io` (hyphen) in all three org spans; `homesteadai.io` kept as the brand/domain in prose. First naming carries the line: "GitHub org: `homesteadai-io` · brand: homesteadai.io". Confirmed against the repo-create screen.
+- **[standing-orders](/operating/standing-orders.md) tightened.** Optional/reversible **feature** choices → decide and log to this ledger, not escalate. Escalation now reserved for exactly three triggers: (a) spends money · (b) new credential/key/auth dependency · (c) edits the Deed, invariants, or spine.
+- **`keep enrich` (LLM concept bodies) — DEFERRED.** Bookmarked in `keep.config.yaml`; not built. Ingestion stays thin/manual (zero new keys) until Adam says otherwise.
+- **Findings board — KEEP current-findings style** (overwritten each sweep; history in git). No change, by decision.
+
+---
+
 ## 2026-06-24 — Tier 1 closed: autonomy, ingestion, self-report (handoff)
 - **Standing Orders ratified.** [standing-orders](/operating/standing-orders.md) — the autonomy mandate: act, run the loop, batch questions, escalate only true forks. The meta-fix against reverting to babysitting.
 - **Free gate enforced locally.** `.githooks/pre-commit` runs `tools/checks.py` before every commit (enable: `git config core.hooksPath .githooks`). Branch protection stays **advisory** (free plan) — no upgrade, by decision.

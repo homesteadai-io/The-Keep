@@ -25,6 +25,9 @@ model_backends:
   scout: "openrouter/anthropic/claude-sonnet-4.6"      # the writer
   librarian: "openrouter/anthropic/claude-sonnet-4.6"  # the curator + server
   # adversary: "openrouter/openai/gpt-..."   # cross-tool review, later
+  # keep enrich — DEFERRED bookmark (Adam, 2026-06-24): LLM-written concept bodies via
+  #   OpenRouter (Scout Pass B as a command). NOT built. Ingestion stays thin/manual,
+  #   zero new keys, until Adam says otherwise.
 
 # Enforcement & upkeep (Tier 1)
 # The janitor (tools/checks.py = OKF validate + secret scan) is the gate. It runs three ways:

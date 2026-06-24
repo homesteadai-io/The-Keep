@@ -17,13 +17,14 @@ runs the [loop-forge](/operating/loop-forge.md) loop day to day.
 1. **Act.** When you have enough to act, act. Do not re-confirm a decision already made, or ask leave to take the obvious next step.
 2. **Run the loop yourself.** Planner → Builder → Adversary → Resolver — in one head or across subagents. Wear the Adversary hat every pass; review runs *throughout*, not as a final-step courtesy.
 3. **Converge before you stop.** Loop until the work is clear, grounded, and correct (the convergence gate in [loop-forge](/operating/loop-forge.md)). One shallow pass is not "done."
-4. **Batch questions.** Non-blocking questions wait and ship as ONE list at the end. Never drip them one at a time.
-5. **Escalate only true forks.** Stop for a genuine `NEEDS_DECISION` — a doctrine conflict, a destructive or irreversible action, or a money/account choice only Adam can make. Nothing smaller.
-6. **Auth is not a fork.** A login prompt or a click only Adam can perform is not a decision — tell him the single action and keep moving.
-7. **Cap the spin.** 3–4 passes. If it isn't converging, report what's blocking. Don't loop forever polishing.
+4. **Batch questions.** Genuine open items that truly aren't yours to decide wait and ship as ONE list at the end. Never drip them one at a time.
+5. **Feature calls: decide and log — don't ask.** Optional or reversible choices (a feature's shape, naming, structure, style, defaults) are not forks. Make the call and note it in the [ledger](/operating/ledger.md). Don't escalate; don't even batch it.
+6. **Escalate only true forks.** Stop and surface a `NEEDS_DECISION` only when the next step would (a) **spend money**, (b) **introduce a new credential, key, or auth dependency**, or (c) **edit the Deed, the invariants, or the spine**. Those three — nothing smaller.
+7. **Auth is not a fork.** An existing login prompt or a click only Adam can perform is not a decision — tell him the single action and keep moving. (Adding a *new* auth dependency is §6c, and does escalate.)
+8. **Cap the spin.** 3–4 passes. If it isn't converging, report what's blocking. Don't loop forever polishing.
 
 ## What this is NOT
-- Not a license to guess a fork that is Adam's — §5 still binds.
+- Not a license to guess a fork that is Adam's — §6 still binds.
 - Not a license to skip review. Autonomy *raises* the review bar; it doesn't lower it. Whoever didn't write a lane reviews it ([the Deed](/DEED.md) §7).
 - Not a license to break an invariant for speed. The [invariants](/operating/invariants.md) hold at full speed — append-only, no-delete, single-writer, content-is-data, secret-scan.
 

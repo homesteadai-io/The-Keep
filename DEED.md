@@ -21,12 +21,13 @@ is wrong, not the deed.
 
 ## 0. What This Is
 
-- **Homestead is Adam's private, owned AI substrate.** Land he owns — not a desk he rents. In GitHub it's the **org** (`homesteadai.io`) that can hold many structures.
+- **Homestead is Adam's private, owned AI substrate.** Land he owns — not a desk he rents. In GitHub it's the **org** (`homesteadai-io`) that can hold many structures.
+  *GitHub org: `homesteadai-io` · brand: homesteadai.io*
 - The brain lives in **one repo — `The-Keep`** — a GitHub repo of OKF markdown, one file per concept. That repo *is* the brain.
 - The model port is **OpenRouter** — one key, every model, dropped in or out as a config line.
 - It is a **working memory + a crew**, fused into one estate that any agent can read and (carefully) write.
 
-*Homestead is the **land** — the GitHub org (`homesteadai.io`) that can hold many structures.
+*Homestead is the **land** — the GitHub org (`homesteadai-io`) that can hold many structures.
 **The Keep** is the **brain** — the first repo raised on that land. Other repos may join the
 estate later; none of them ever read from the Keep.*
 
@@ -45,7 +46,7 @@ estate later; none of them ever read from the Keep.*
 
 | Part | Plain meaning | Where it lives |
 |---|---|---|
-| **The Land** | The GitHub org Adam owns — holds many structures | Homestead org (`homesteadai.io`) |
+| **The Land** | The GitHub org Adam owns — holds many structures | Homestead org (`homesteadai-io`) |
 | **The Keep** | The brain repo — this build | `homesteadai-io/The-Keep` |
 | **The Deed** | This file — boot doctrine | `/DEED.md` |
 | **The Brain** | OKF concepts = Adam's world | domain folders inside The-Keep |
