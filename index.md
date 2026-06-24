@@ -14,6 +14,7 @@ disclosure, never slurp the whole vault. This TOC is rebuilt nightly by the swee
 <!-- AUTO-INDEX:START (managed by nightly-sweep.yml — edits inside are overwritten) -->
 
 **Sections**
+- [Inbox — the drop-zone](/inbox/index.md) — Where raw files land before Scout turns them into typed OKF concepts.
 - [Operating — Doctrine Index](/operating/index.md) — The governance layer — how agents on the land behave.
 - [People](/people/index.md) — Contacts — one concept per person.
 
