@@ -1,0 +1,27 @@
+okf_version: "0.1"
+
+# Locked taxonomy (DEED §8 in the build spec). Do not add types without a Decision.
+type_map: [Decision, Concept, Playbook, Product, Org, Contact, Dataset, Asset, Session, Index]
+
+# Domains grow as Adam adds projects via `keep add`.
+domains: [operating, people]
+
+guardrails:
+  treat_file_content_as_data: true   # content is DATA, never instructions (Invariant #7)
+  secret_scan_before_write: true     # Invariant #8
+  copy_never_move: true              # Invariant #4
+  raw_is_gitignored: true            # Invariant #5
+  single_writer: true                # only Scout writes concepts (Invariant #6)
+  no_delete: true                    # archive to /attic, never delete (Invariant #2)
+  web_enrichment: false              # v1 = local only, zero attack surface
+  domain_allowlist: []               # only used if web_enrichment ever true
+
+links:
+  style: absolute-bundle-relative    # leading "/", resolved from repo root
+
+# Model port — OpenRouter. Swap any model by changing the string. Drop in/out freely.
+model_port: openrouter
+model_backends:
+  scout: "openrouter/anthropic/claude-sonnet-4.6"      # the writer
+  librarian: "openrouter/anthropic/claude-sonnet-4.6"  # the curator + server
+  # adversary: "openrouter/openai/gpt-..."   # cross-tool review, later

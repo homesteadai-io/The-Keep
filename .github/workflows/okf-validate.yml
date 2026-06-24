@@ -1,0 +1,54 @@
+name: OKF validate + secret scan
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: OKF conformance — every non-reserved .md needs a non-empty `type`
+        run: |
+          python - << 'PY'
+          import sys, pathlib, re
+          RESERVED = {"index.md", "log.md", "ledger.md", "README.md",
+                      "AGENTS.md", "CLAUDE.md", "DEED.md"}
+          fail = []
+          for p in pathlib.Path(".").rglob("*.md"):
+              if any(part in (".git", "_raw", "attic") for part in p.parts):
+                  continue
+              if p.name in RESERVED:
+                  continue
+              text = p.read_text(encoding="utf-8", errors="replace")
+              m = re.match(r"^---\n(.*?)\n---", text, re.DOTALL)
+              if not m:
+                  fail.append(f"{p}: missing YAML frontmatter")
+                  continue
+              fm = m.group(1)
+              tm = re.search(r"^type:\s*(\S.*)$", fm, re.MULTILINE)
+              if not tm or not tm.group(1).strip():
+                  fail.append(f"{p}: missing or empty `type`")
+          if fail:
+              print("OKF validation failed:")
+              for f in fail: print("  -", f)
+              sys.exit(1)
+          print("OKF OK — all concepts carry a type.")
+          PY
+
+      - name: Secret scan (starter — swap in gitleaks/trufflehog later)
+        run: |
+          echo "Scanning tracked files for obvious secrets..."
+          PATTERN='(AKIA[0-9A-Z]{16}|sk-[A-Za-z0-9]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----|xox[baprs]-[0-9A-Za-z-]+|ghp_[A-Za-z0-9]{36})'
+          if git grep -nIE "$PATTERN" -- . ':(exclude).github/workflows/*'; then
+            echo "::error::Possible secret detected. Quarantine it — do not commit."
+            exit 1
+          fi
+          echo "Secret scan clean."

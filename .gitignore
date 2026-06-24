@@ -1,0 +1,24 @@
+# The Keep — keep the brain clean, keep secrets and raw out of the cloud
+
+# Immutable source copies live locally, never pushed (Invariant #5)
+_raw/
+
+# Secrets — never commit (Invariant #8)
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.*
+credentials.*
+*.secret
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
