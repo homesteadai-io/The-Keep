@@ -20,7 +20,7 @@ two Keepers that grow the brain without rotting it. Read [the Deed](/DEED.md) fi
 - [librarian](/operating/librarian.md) — The curator + server. Reconciles the brain, retires the dead, answers queries. A reconciler, never an ingester.
 - [log](/operating/log.md) — The sweep's findings board — broken links and possible duplicates, surfaced not silently swallowed. Rebuilt each nightly sweep.
 - [loop-forge](/operating/loop-forge.md) — The build loop and convergence gate — how WORK gets made on the land.
-- [prd-agent-run](/operating/prd-agent-run.md) — Build handoff for Tier 2 — wire the model port and turn Scout/Librarian into running agents so The Keep operates itself, not just maintains itself.
+- [prd-agent-run](/operating/prd-agent-run.md) — Build handoff for the agent-run phase — Codex-as-agent (β) reads the Scout/Librarian briefs and runs the Keep locally; Actions stays a mechanical janitor. Standalone, runtime-correct.
 - [scout](/operating/scout.md) — The producer — the only writer to the brain. Turns chosen files into typed OKF concepts.
 - [soul-loop](/operating/soul-loop.md) — How any agent thinks — turn uncertainty into useful, grounded, humane action.
 - [soul](/operating/soul.md) — The prime operating identity — how any agent on the land carries itself.

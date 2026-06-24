@@ -14,6 +14,15 @@ The append-only record of **Adam's decisions**. Newest first. This is the *ledge
 
 ---
 
+## 2026-06-24 — Runtime decision: Codex-as-agent (β)
+- **Runtime = Codex-as-agent (β), not α.** Codex *is* Scout + Librarian — reads their briefs, works with native file + git on Adam's subscription. No `tools/llm.py`, no OpenRouter, no repo secret in v1; α (OpenRouter) is the deferred portability fallback only.
+- **Agents merged into the Keep.** Uploaded agent files (`AGENTS.md`, `soul.md`, `subagents.md`, `Scout.md`, `Librarian.md`) move into `/operating` (UTF-16→UTF-8); OneDrive `Homestead AI.io\Agents` retires to instruction-base-only (no `_raw` leak / git-corruption risk). One brain = `C:\dev\The-Keep`.
+- **Schema upgraded, one folder language.** Reconcile concepts to the richer schema (`status`/`confidence`/`contradiction-notes`/`provenance`) in place — migrate old→new, no numbered folders alongside `operating/`/`people/`.
+- **`receipt` → `write-log`.** Renamed in the agent files; `receipt` stays sealed for Lyhna. Sealed three hold: ledger · trace · receipt.
+- **`_raw` runtime fix.** Scout enrich runs LOCAL (where gitignored `_raw` lives); Actions = mechanical sweep/janitor only; the "commit→Scout-enrich-on-Actions" trigger is deleted. Spec: [prd-agent-run](/operating/prd-agent-run.md).
+
+---
+
 ## 2026-06-24 — Tier 1 rulings: Deed slug, escalation tightened
 - **Deed org slug corrected (Adam-approved).** [The Deed](/DEED.md) now labels the GitHub org `homesteadai-io` (hyphen) in all three org spans; `homesteadai.io` kept as the brand/domain in prose. First naming carries the line: "GitHub org: `homesteadai-io` · brand: homesteadai.io". Confirmed against the repo-create screen.
 - **[standing-orders](/operating/standing-orders.md) tightened.** Optional/reversible **feature** choices → decide and log to this ledger, not escalate. Escalation now reserved for exactly three triggers: (a) spends money · (b) new credential/key/auth dependency · (c) edits the Deed, invariants, or spine.
