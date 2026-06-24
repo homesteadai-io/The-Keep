@@ -16,10 +16,10 @@ jobs:
   sweep:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -38,6 +38,6 @@ jobs:
             echo "No structural changes — indexes already current."
           else
             git commit -m "nightly sweep: rebuild indexes"
-            git push
+            git push origin "HEAD:${GITHUB_REF_NAME}"
             echo "Swept indexes committed and pushed."
           fi

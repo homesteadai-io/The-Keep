@@ -1,0 +1,7 @@
+# The Keep — normalize line endings everywhere so the LF-only OKF frontmatter
+# regex (tools/checks.py: ^---\n) holds on every platform and on the Linux runner.
+* text=auto eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+.githooks/pre-commit text eol=lf

@@ -18,8 +18,8 @@ On any ingest, **check for an existing concept first.**
 - **Never blindly spawn a duplicate.**
 
 Merge the duplicates Scout flagged (human-confirm while the corpus is young). Normalize
-`type` values against `keep.config.yaml`. Promote good ad-hoc inbox notes into properly
-typed concepts.
+`type` values against `keep.config.yaml`. Promote good ad-hoc [inbox](/inbox/index.md) notes
+into properly typed concepts.
 
 ## Retire (archive, never delete)
 Source gone or concept dead → move it to `/attic` with a log line. The path *is* identity;

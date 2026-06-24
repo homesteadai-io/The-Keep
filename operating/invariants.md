@@ -26,4 +26,4 @@ These hold no matter what. If a design choice violates one, the choice is wrong 
 
 ---
 
-Related: [the deed](/DEED.md) · [loop-forge](/operating/loop-forge.md)
+Related: [the deed](/DEED.md) · [loop-forge](/operating/loop-forge.md) · [standing-orders](/operating/standing-orders.md)

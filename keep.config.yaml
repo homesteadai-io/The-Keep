@@ -25,3 +25,13 @@ model_backends:
   scout: "openrouter/anthropic/claude-sonnet-4.6"      # the writer
   librarian: "openrouter/anthropic/claude-sonnet-4.6"  # the curator + server
   # adversary: "openrouter/openai/gpt-..."   # cross-tool review, later
+
+# Enforcement & upkeep (Tier 1)
+# The janitor (tools/checks.py = OKF validate + secret scan) is the gate. It runs three ways:
+#   1. local pre-commit hook — .githooks/pre-commit  (enable: git config core.hooksPath .githooks)
+#   2. on every push         — .github/workflows/okf-validate.yml
+#   3. nightly + on-demand   — .github/workflows/nightly-sweep.yml (rebuilds index TOCs, logs flags to operating/log.md)
+# Branch protection on main is ADVISORY, not enforced: required-status-checks are plan-gated on a
+# private repo (org homesteadai-io is on GitHub free), and going public is barred by the Deed
+# (invariants #5/#10). The local hook is the real gate until the plan changes — no upgrade for now.
+# Nightly sweep cron: 0 8 * * * (08:00 UTC). Kept.

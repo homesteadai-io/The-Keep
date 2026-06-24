@@ -41,4 +41,4 @@ Keep the three sealed. See [the deed](/DEED.md) §4.
 
 ---
 
-Related: [soul-loop](/operating/soul-loop.md) · [council](/operating/council.md) · [invariants](/operating/invariants.md)
+Related: [soul-loop](/operating/soul-loop.md) · [council](/operating/council.md) · [invariants](/operating/invariants.md) · [standing-orders](/operating/standing-orders.md)

@@ -15,15 +15,45 @@ The sweep never deletes and never fails the build — flagging is its whole job.
 regex happy on the Linux runner.
 """
 import re
+import sys
 import difflib
 import pathlib
+
+try:  # keep console output portable (Windows consoles default to cp1252)
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 START = "<!-- AUTO-INDEX:START (managed by nightly-sweep.yml — edits inside are overwritten) -->"
 END = "<!-- AUTO-INDEX:END -->"
 
+LOG_PATH = ROOT / "operating" / "log.md"
+LOG_START = "<!-- AUTO-LOG:START (managed by nightly-sweep.yml — current findings, overwritten each run) -->"
+LOG_END = "<!-- AUTO-LOG:END -->"
+LOG_BLOCK_RE = re.compile(re.escape(LOG_START) + r".*?" + re.escape(LOG_END), re.DOTALL)
+LOG_SCAFFOLD = """\
+---
+type: Session
+title: log
+description: The sweep's findings board — broken links and possible duplicates, surfaced not silently swallowed. Rebuilt each nightly sweep.
+tags: [doctrine, sweep, findings, homestead]
+timestamp: 2026-06-24T00:00:00Z
+---
+
+# log.md
+
+What the nightly sweep found and did **not** auto-fix. Broken links and possible duplicates
+are flagged here for a human (or the [Librarian](/operating/librarian.md)) — the sweep never
+merges or deletes. A clean board means the brain is coherent. History lives in git.
+
+{block}
+"""
+
 # Never listed as a concept in any TOC (containers, redirects, the contract).
+# Deliberately NOT the same as checks.py RESERVED: log.md / ledger.md carry a `type` and are
+# navigable, so they DO appear in the TOC. RESERVED = exempt from the type rule; EXCLUDE = hidden from TOC.
 EXCLUDE = {"index.md", "README.md", "AGENTS.md", "CLAUDE.md", "DEED.md"}
 # Directories the sweep does not enter or index.
 SKIP_DIRS = {".git", "_raw", "attic", "tools", ".github"}
@@ -33,6 +63,7 @@ BLOCK_RE = re.compile(re.escape(START) + r".*?" + re.escape(END), re.DOTALL)
 
 
 def parse_fm(text):
+    text = text.replace("\r\n", "\n")  # tolerate CRLF on read so title/desc extraction works on Windows
     m = FM_RE.match(text)
     if not m:
         return {}
@@ -122,7 +153,8 @@ def all_live_md():
             yield p
 
 
-LINK_RE = re.compile(r"\[[^\]]*\]\((/[^)\s#]+)(?:#[^)]*)?\)")
+# matches [text](/path) and ![alt](/path), tolerating a #anchor or a "title" after the path
+LINK_RE = re.compile(r"!?\[[^\]]*\]\((/[^)\s#\"']+)(?:[#\s][^)]*)?\)")
 
 
 def link_check():
@@ -161,6 +193,41 @@ def dedup_flag():
     return flags
 
 
+def build_log_block(missing, flags):
+    lines = [LOG_START, ""]
+    if missing:
+        lines.append(f"**Broken links ({len(missing)})** — link targets that don't exist yet (a TODO, not an error):")
+        for src, target in missing:
+            lines.append(f"- `{src}` → `{target}`")
+        lines.append("")
+    if flags:
+        lines.append(f"**Possible duplicates ({len(flags)})** — flagged for the Librarian; never auto-merged:")
+        for f in flags:
+            lines.append(f"- {f}")
+        lines.append("")
+    if not missing and not flags:
+        lines.append("_Last sweep: clean — no broken links, no duplicate flags._")
+        lines.append("")
+    lines.append(LOG_END)
+    return "\n".join(lines)
+
+
+def update_log(missing, flags):
+    block = build_log_block(missing, flags)
+    if LOG_PATH.exists():
+        text = LOG_PATH.read_text(encoding="utf-8", errors="replace").replace("\r\n", "\n")
+        if LOG_START in text and LOG_END in text:
+            new = LOG_BLOCK_RE.sub(lambda _m: block, text)
+        else:
+            new = text.rstrip() + "\n\n" + block + "\n"
+    else:
+        new = LOG_SCAFFOLD.format(block=block)
+    if not LOG_PATH.exists() or new != LOG_PATH.read_text(encoding="utf-8", errors="replace").replace("\r\n", "\n"):
+        LOG_PATH.write_text(new, encoding="utf-8", newline="\n")
+        return True
+    return False
+
+
 def main():
     changed = rebuild_indexes()
     if changed:
@@ -170,11 +237,19 @@ def main():
     else:
         print("Indexes already current — no changes.")
 
-    for src, target in link_check():
-        print(f"::warning file={src}::link to missing path '{target}' (unwritten page = TODO, not an error)")
+    missing = link_check()
+    flags = dedup_flag()
 
-    for f in dedup_flag():
+    for src, target in missing:
+        print(f"::warning file={src}::link to missing path '{target}' (unwritten page = TODO, not an error)")
+    for f in flags:
         print(f"::warning::dedup — {f}")
+
+    if update_log(missing, flags):
+        print(f"Findings board updated: {LOG_PATH.relative_to(ROOT).as_posix()} "
+              f"({len(missing)} broken link(s), {len(flags)} duplicate flag(s)).")
+    else:
+        print("Findings board already current.")
 
     print("Sweep complete (flag-only; the gate is tools/checks.py).")
 

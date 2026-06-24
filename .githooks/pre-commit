@@ -1,0 +1,14 @@
+#!/bin/sh
+# The Keep — local pre-commit gate (the free janitor).
+#
+# Branch protection is plan-gated on private repos (org is on GitHub free), so this
+# hook is the enforced gate: no commit lands locally if OKF validation or the secret
+# scan fails. The GitHub Action still runs the same check on every push as a backstop.
+#
+# Install once per clone:
+#     git config core.hooksPath .githooks
+#
+set -e
+if command -v python >/dev/null 2>&1; then PY=python; else PY=python3; fi
+echo "[pre-commit] OKF validate + secret scan (the free gate)…"
+"$PY" tools/checks.py

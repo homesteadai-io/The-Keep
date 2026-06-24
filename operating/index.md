@@ -14,12 +14,15 @@ two Keepers that grow the brain without rotting it. Read [the Deed](/DEED.md) fi
 <!-- AUTO-INDEX:START (managed by nightly-sweep.yml — edits inside are overwritten) -->
 
 - [council](/operating/council.md) — Five callable specialist lenses that make the main agent harder to fool.
+- [howto-ingest](/operating/howto-ingest.md) — The end-to-end path from a file you chose to a typed, reconciled concept in the brain.
 - [invariants](/operating/invariants.md) — The non-negotiables. Violate one and the design choice is wrong.
 - [ledger](/operating/ledger.md) — Append-only record of Adam's decisions. Newest first. Homestead's word — not a trace, not a receipt.
 - [librarian](/operating/librarian.md) — The curator + server. Reconciles the brain, retires the dead, answers queries. A reconciler, never an ingester.
+- [log](/operating/log.md) — The sweep's findings board — broken links and possible duplicates, surfaced not silently swallowed. Rebuilt each nightly sweep.
 - [loop-forge](/operating/loop-forge.md) — The build loop and convergence gate — how WORK gets made on the land.
 - [scout](/operating/scout.md) — The producer — the only writer to the brain. Turns chosen files into typed OKF concepts.
 - [soul-loop](/operating/soul-loop.md) — How any agent thinks — turn uncertainty into useful, grounded, humane action.
 - [soul](/operating/soul.md) — The prime operating identity — how any agent on the land carries itself.
+- [standing-orders](/operating/standing-orders.md) — The autonomy mandate — agents on the land act, converge, and escalate only true forks. Never revert to babysitting.
 
 <!-- AUTO-INDEX:END -->

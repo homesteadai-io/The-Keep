@@ -11,6 +11,11 @@ import re
 import sys
 import pathlib
 
+try:  # keep console output portable (Windows consoles default to cp1252)
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 # Files that carry no OKF `type` by design (containers, redirects, the contract).
@@ -18,8 +23,9 @@ RESERVED = {
     "index.md", "log.md", "ledger.md", "README.md",
     "AGENTS.md", "CLAUDE.md", "DEED.md",
 }
-# Directories never scanned for OKF conformance.
-OKF_SKIP_DIRS = {".git", "_raw", "attic"}
+# Directories never scanned for OKF conformance (aligned with sweep.py SKIP_DIRS so a
+# .md added under tools/ or .github/ — e.g. a PR template — never trips the gate).
+OKF_SKIP_DIRS = {".git", "_raw", "attic", "tools", ".github"}
 # Directories excluded from the secret scan (workflow/tooling hold the patterns themselves).
 SECRET_SKIP_DIRS = {".git", "_raw", ".github", "tools"}
 

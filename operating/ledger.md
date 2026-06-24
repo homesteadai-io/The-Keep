@@ -14,6 +14,20 @@ The append-only record of **Adam's decisions**. Newest first. This is the *ledge
 
 ---
 
+## 2026-06-24 — Tier 1 closed: autonomy, ingestion, self-report (handoff)
+- **Standing Orders ratified.** [standing-orders](/operating/standing-orders.md) — the autonomy mandate: act, run the loop, batch questions, escalate only true forks. The meta-fix against reverting to babysitting.
+- **Free gate enforced locally.** `.githooks/pre-commit` runs `tools/checks.py` before every commit (enable: `git config core.hooksPath .githooks`). Branch protection stays **advisory** (free plan) — no upgrade, by decision.
+- **Actions off Node 20** (`checkout@v5`, `setup-python@v6`). `keep.config.yaml` documents the enforcement model; nightly cron kept at 08:00 UTC.
+- **Sweep reports, not just heals.** Broken-link + dedup flags now land in [log](/operating/log.md) (a current-findings board), surfaced for the Librarian instead of silently swallowed.
+- **Ingestion shipped.** `python tools/keep.py add <file>` → secret-scanned, raw copied to `_raw/`, typed OKF stub, reconciled (refuses duplicate title / overwrite). Drop → concept. See [howto-ingest](/operating/howto-ingest.md).
+- **Doctrine cross-linked** (Scout Pass B — links only, zero new facts). The brain reads as one fabric.
+- **Landing copy grounded.** [homestead](/homestead.md) states only what the Deed supports, in plain language.
+- **Reviewed throughout.** Subagent code-review + doctrine-coherence passes ran during the build; all blocking findings fixed (CRLF normalization + `.gitattributes`, `keep add` write-order, skip-dir alignment).
+- **Open fork for Adam:** `DEED.md` writes the org as `homesteadai.io` (dotted) in three spots vs the real GitHub org `homesteadai-io`. Left untouched — it's the spine, Adam's to correct.
+- **State: idle-and-ready.** No agent running. Drop a file in `/inbox` and run `keep add` to grow the brain.
+
+---
+
 ## 2026-06-24 — Tier 1: self-maintenance live
 - **Keepers wired.** `scout.md` (the only writer) + `librarian.md` (curator/server) added to `/operating` and listed in the indexes.
 - **Inbox opened.** `/inbox` drop-zone documents the Drop → Scout → Librarian → raw-stays-out flow.

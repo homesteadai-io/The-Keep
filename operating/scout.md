@@ -13,7 +13,7 @@ fail-closed. Any agent may *act as Scout*, but only the Scout role writes concep
 no write races, no matter how many hands are running.
 
 ## Triggers
-- **On-demand:** `keep add <file>`, an inbox drop, or "act as Scout, ingest this." (v1 default — human-triggered.)
+- **On-demand:** `keep add <file>`, an [inbox](/inbox/index.md) drop, or "act as Scout, ingest this." (v1 default — human-triggered.)
 - **Structural nightly:** handled by the Action sweep — pure script, **no LLM**. Unattended LLM ingestion is deferred (earns its place once the on-demand pipeline is trusted).
 
 ## Live ingest — one file, two passes
