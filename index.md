@@ -8,18 +8,13 @@ timestamp: 2026-06-23T00:00:00Z
 
 # The Keep — Root Index
 
-**Boot from [the Deed](/DEED.md) first.** Then load only what you need.
+**Boot from [the Deed](/DEED.md) first.** Then load only what you need — progressive
+disclosure, never slurp the whole vault. This TOC is rebuilt nightly by the sweep.
 
-## Doctrine — `/operating`
-- [The Deed](/DEED.md) — the contract every agent reads first
-- [soul](/operating/soul.md) — identity
-- [soul-loop](/operating/soul-loop.md) — how any agent thinks
-- [loop-forge](/operating/loop-forge.md) — the build loop + convergence gate
-- [council](/operating/council.md) — the five callable specialists
-- [invariants](/operating/invariants.md) — the non-negotiables
-- [ledger](/operating/ledger.md) — append-only record of Adam's decisions
+<!-- AUTO-INDEX:START (managed by nightly-sweep.yml — edits inside are overwritten) -->
 
-## Domains
-- [people](/people/index.md) — contacts
+**Sections**
+- [Operating — Doctrine Index](/operating/index.md) — The governance layer — how agents on the land behave.
+- [People](/people/index.md) — Contacts — one concept per person.
 
-*Domains grow as Adam adds projects. Progressive disclosure: never slurp the whole vault.*
+<!-- AUTO-INDEX:END -->

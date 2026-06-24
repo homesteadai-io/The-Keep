@@ -1,0 +1,43 @@
+name: Nightly sweep
+
+on:
+  schedule:
+    - cron: "0 8 * * *"   # ~08:00 UTC daily
+  workflow_dispatch:        # manual trigger for testing / on-demand
+
+permissions:
+  contents: write           # commit rebuilt indexes as github-actions[bot] via GITHUB_TOKEN
+
+concurrency:
+  group: nightly-sweep
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild indexes + link-check + dedup-flag
+        run: python tools/sweep.py
+
+      - name: OKF validate + secret scan (gate the swept result)
+        run: python tools/checks.py
+
+      - name: Commit swept changes (github-actions[bot])
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No structural changes — indexes already current."
+          else
+            git commit -m "nightly sweep: rebuild indexes"
+            git push
+            echo "Swept indexes committed and pushed."
+          fi

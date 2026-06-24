@@ -8,10 +8,18 @@ timestamp: 2026-06-23T00:00:00Z
 
 # Operating — Doctrine Index
 
-- [The Deed](/DEED.md) — the contract, read first
-- [soul](/operating/soul.md) — identity
-- [soul-loop](/operating/soul-loop.md) — how any agent thinks
-- [loop-forge](/operating/loop-forge.md) — how work gets built (convergence loop + gate)
-- [council](/operating/council.md) — five callable specialist lenses
-- [invariants](/operating/invariants.md) — the non-negotiables
-- [ledger](/operating/ledger.md) — append-only record of Adam's decisions
+The governance layer — identity, how agents think and build, the non-negotiables, and the
+two Keepers that grow the brain without rotting it. Read [the Deed](/DEED.md) first.
+
+<!-- AUTO-INDEX:START (managed by nightly-sweep.yml — edits inside are overwritten) -->
+
+- [council](/operating/council.md) — Five callable specialist lenses that make the main agent harder to fool.
+- [invariants](/operating/invariants.md) — The non-negotiables. Violate one and the design choice is wrong.
+- [ledger](/operating/ledger.md) — Append-only record of Adam's decisions. Newest first. Homestead's word — not a trace, not a receipt.
+- [librarian](/operating/librarian.md) — The curator + server. Reconciles the brain, retires the dead, answers queries. A reconciler, never an ingester.
+- [loop-forge](/operating/loop-forge.md) — The build loop and convergence gate — how WORK gets made on the land.
+- [scout](/operating/scout.md) — The producer — the only writer to the brain. Turns chosen files into typed OKF concepts.
+- [soul-loop](/operating/soul-loop.md) — How any agent thinks — turn uncertainty into useful, grounded, humane action.
+- [soul](/operating/soul.md) — The prime operating identity — how any agent on the land carries itself.
+
+<!-- AUTO-INDEX:END -->

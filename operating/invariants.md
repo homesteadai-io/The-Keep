@@ -22,6 +22,7 @@ These hold no matter what. If a design choice violates one, the choice is wrong 
 10. **The Keep stands alone.** Private; no other repo in the Homestead org may import or read from it. Brain, not dependency.
 11. **Idempotent structure.** Same inbox → same file placement and ordering. (Bodies are LLM-written and vary; *structure* does not.)
 12. **Links are absolute bundle-relative.** Leading `/`, resolved from repo root. Absolute links survive file moves. A link to an unwritten page is a TODO, not an error.
+13. **No-delete protects vault concepts, not local scratch.** Working files and temp dirs may be deleted freely; only committed concepts are sacred (archive to `/attic`). The append-only law guards the brain — not your desk.
 
 ---
 
