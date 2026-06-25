@@ -14,6 +14,13 @@ The append-only record of **Adam's decisions**. Newest first. This is the *ledge
 
 ---
 
+## 2026-06-24 — One-folder language set in the briefs
+- **Numbered folders retired.** `scout.md` / `librarian.md` now speak the repo's one-folder language only — no `10_INBOX`/`30_CANONICAL`/etc. survive in the tree or the briefs. Map: `10_INBOX`→`/inbox` · `30_CANONICAL`→domain folders directly (no `canonical/` wrapper) · `40_MAPS`→`index.md` TOCs (sweep-built) · `50_CONTEXT_PACKS`→`/context-packs` · `60_RECEIPTS`→`/write-logs` · `90_ARCHIVE`→`/attic`.
+- **`20_SOURCES` folded into `_raw` provenance** (decide-and-log): the concept's `resource:` + `sha256` over gitignored `_raw/` is the source record — no separate `/sources` folder (avoids two source stores).
+- `/context-packs` and `/write-logs` are canonical paths that materialize on first use (unwritten path = TODO, invariant #12). No empty dirs pre-created, no tooling changed.
+
+---
+
 ## 2026-06-24 — Runtime decision: Codex-as-agent (β)
 - **Runtime = Codex-as-agent (β), not α.** Codex *is* Scout + Librarian — reads their briefs, works with native file + git on Adam's subscription. No `tools/llm.py`, no OpenRouter, no repo secret in v1; α (OpenRouter) is the deferred portability fallback only.
 - **Agents merged into the Keep.** Uploaded agent files (`AGENTS.md`, `soul.md`, `subagents.md`, `Scout.md`, `Librarian.md`) move into `/operating` (UTF-16→UTF-8); OneDrive `Homestead AI.io\Agents` retires to instruction-base-only (no `_raw` leak / git-corruption risk). One brain = `C:\dev\The-Keep`.
