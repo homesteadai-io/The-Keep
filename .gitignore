@@ -2,6 +2,7 @@
 
 # Immutable source copies live locally, never pushed (Invariant #5)
 _raw/
+inbox/
 
 # Secrets — never commit (Invariant #8)
 .env
@@ -13,6 +14,8 @@ _raw/
 secrets.*
 credentials.*
 *.secret
+*openrouter*key*.txt
+*api*key*.txt
 
 # Python tooling cruft (tools/*.py)
 __pycache__/
