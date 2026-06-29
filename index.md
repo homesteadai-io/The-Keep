@@ -1,23 +1,36 @@
 ---
 type: Index
-title: The Keep — Root Index
+title: The Keep - Root Index
 description: Progressive-disclosure table of contents for Homesteadai.io's OKF library.
 okf_version: "0.1"
-timestamp: 2026-06-23T00:00:00Z
+timestamp: 2026-06-25T00:00:00Z
 ---
 
-# The Keep — Root Index
+# The Keep - Root Index
 
-**Boot from [the Deed](/DEED.md) first.** Then load only what you need — progressive
-disclosure, never slurp the whole vault. This TOC is rebuilt nightly by the sweep.
+**Boot from [the Deed](/DEED.md) first.** Then load only what you need.
 
-<!-- AUTO-INDEX:START (managed by nightly-sweep.yml — edits inside are overwritten) -->
+## Doctrine - `/operating`
+- [The Deed](/DEED.md) - the contract every agent reads first
+- [soul](/operating/soul.md) - identity
+- [soul-loop](/operating/soul-loop.md) - how any agent thinks
+- [loop-forge](/operating/loop-forge.md) - the build loop + convergence gate
+- [council](/operating/council.md) - the five callable specialists
+- [scout](/operating/scout.md) - the ingest producer for new concepts
+- [librarian](/operating/librarian.md) - the curator, reconciler, and server
+- [prd-agent-run](/operating/prd-agent-run.md) - execution record for the PRD sequence and Keeper gate
+- [recon-2026-06-25](/operating/recon-2026-06-25.md) - real-state report and schema convergence record
+- [proof-2026-06-25](/operating/proof-2026-06-25.md) - end-to-end Keeper proof and cold-amnesia test
+- [invariants](/operating/invariants.md) - the non-negotiables
+- [ledger](/operating/ledger.md) - append-only record of Adam's decisions
 
-- [Homestead](/homestead.md) — What Homestead is, in plain terms — an AI memory you own, and The Keep, the brain raised on it.
+## Domains
+- [ai-theory-builds](/ai-theory-builds/index.md)
+- [creative-coatings](/creative-coatings/index.md)
+- [frostbite](/frostbite/index.md)
+- [homesteadai-io](/homesteadai-io/index.md)
+- [keryke](/keryke/index.md)
+- [lyhna](/lyhna/index.md)
+- [personal](/personal/index.md)
 
-**Sections**
-- [Inbox — the drop-zone](/inbox/index.md) — Where raw files land before Scout turns them into typed OKF concepts.
-- [Operating — Doctrine Index](/operating/index.md) — The governance layer — how agents on the land behave.
-- [People](/people/index.md) — Contacts — one concept per person.
-
-<!-- AUTO-INDEX:END -->
+*Progressive disclosure: never slurp the whole brain.*

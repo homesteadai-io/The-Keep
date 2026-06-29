@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-06-23T14:00:00Z",
+  "projects": [
+    {
+      "name": "Homestead",
+      "one_liner": "Owned local substrate every agent reads first.",
+      "status": "building",
+      "open_tbds": ["[TBD-SEED] seed seven active domains", "[TBD-VERBS] final CLI verbs"],
+      "last_decision": "2026-06-25 - Keryke clarified as its own company/library domain"
+    },
+    {
+      "name": "Keryke",
+      "one_liner": "Small-business AI company/library domain, formerly under another name.",
+      "status": "building",
+      "open_tbds": ["[SEED] ingest Keryke/Arlo/Keryke.oi Claude corpus routes"],
+      "last_decision": "2026-06-25 - Adam clarified Keryke is its own domain"
+    },
+    {
+      "name": "Lyhna",
+      "one_liner": "Ordinary Keep domain for Lyhna source memory.",
+      "status": "live",
+      "open_tbds": ["[SEED] pull current state from LYHNA.md"],
+      "last_decision": "2026-06-23 — used by Homestead as a customer"
+    },
+    {
+      "name": "Loop Forge",
+      "one_liner": "Convergence-loop engine. Runs traces.",
+      "status": "building",
+      "open_tbds": ["[SEED] pull canonical gate spec"],
+      "last_decision": ""
+    },
+    {
+      "name": "Creative Coatings",
+      "one_liner": "[SEED — venture context not yet on the land]",
+      "status": "parked",
+      "open_tbds": ["[SEED] pull venture context"],
+      "last_decision": ""
+    },
+    {
+      "name": "Frostbite Feeders",
+      "one_liner": "[SEED — venture context not yet on the land]",
+      "status": "scanning",
+      "open_tbds": ["[SEED] pull venture context"],
+      "last_decision": ""
+    }
+  ],
+  "recent_ledger": [
+    { "date": "2026-06-25", "project": "homestead", "decision": "Keryke is its own small-business AI company/library domain." },
+    { "date": "2026-06-25", "project": "homestead", "decision": "Reconciled contract to one-folder six-domain schema; superseded by Keryke seven-domain clarification." },
+    { "date": "2026-06-23", "project": "homestead", "decision": "claude.ai surface resolved to Claude desktop app (local stdio)." },
+    { "date": "2026-06-23", "project": "homestead", "decision": "Dashboard promoted to load-bearing move-in mechanism (spatial land)." },
+    { "date": "2026-06-23", "project": "homestead", "decision": "Historical note superseded: model routing no longer lives under spine/." }
+  ],
+  "inbox_count": 1
+}
