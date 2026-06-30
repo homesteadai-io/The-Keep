@@ -24,6 +24,7 @@ two Keepers that grow the brain without rotting it. Read [the Deed](/DEED.md) fi
 - [scout](/operating/scout.md) — The producer — the only writer to the brain. Turns chosen files into typed OKF concepts.
 - [soul-loop](/operating/soul-loop.md) — How any agent thinks — turn uncertainty into useful, grounded, humane action.
 - [soul](/operating/soul.md) — The prime operating identity — how any agent on the land carries itself.
+- [SSP Context Graph v2](/operating/ssp-context-graph-v2.md) — SSP as The Keep's deterministic Librarian match key and first self-scoring context-graph primitive.
 - [standing-orders](/operating/standing-orders.md) — The autonomy mandate — agents on the land act, converge, and escalate only true forks. Never revert to babysitting.
 
 <!-- AUTO-INDEX:END -->
