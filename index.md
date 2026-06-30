@@ -13,6 +13,7 @@ disclosure, never slurp the whole vault. This TOC is rebuilt nightly by the swee
 
 <!-- AUTO-INDEX:START (managed by nightly-sweep.yml — edits inside are overwritten) -->
 
+- [The Keep Truth](/THE-KEEP-TRUTH.md) — Current plain-English truth of The Keep, Homestead Door, and proven agent boot behavior after the June 2026 build arc.
 - [Homestead](/homestead.md) — What Homestead is, in plain terms — an AI memory you own, and The Keep, the brain raised on it.
 
 **Sections**
